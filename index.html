@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="./assets/css/style.css" />
+		<title>Document</title>
+	</head>
+	<body>
+		<form action="">
+			<h1>Kalorien Rechner</h1>
+			<h2></h2>
+			<label for="height-id">Körpergröße (in cm)</label>
+			<input
+				onchange="checkIfEmpty(event)"
+				type="number"
+				name="groesse"
+				id="height-id"
+				min="0"
+			/>
+			<label for="alter-id">Alter</label>
+			<input
+				onchange="checkIfEmpty(event)"
+				type="number"
+				name="alter"
+				id="alter-id"
+				min="0"
+			/>
+			<label for="gewicht-id">Gewicht (in kg)</label>
+			<input
+				onchange="checkIfEmpty(event)"
+				type="number"
+				name="gewicht"
+				id="gewicht-id"
+				min="0"
+			/>
+			<label for="">Körperbau</label>
+			<div>
+				<input type="radio" name="gender" id="weiblich-radio" />
+				<label for="gender">Weiblich</label>
+			</div>
+			<div>
+				<input type="radio" name="gender" id="maennlich-radio" checked />
+				<label for="gender">Männlich</label>
+			</div>
+			<label for="aktivity-id">Arbeits- und Freizeitaktivität</label>
+			<select name="action" id="activity-id">
+				<option value="0.95">Schlafen</option>
+				<option value="1.2" selected>Nur Sitzen oder Liegen</option>
+				<option value="1.25">Ausschließlich sitzende Tätigkeit</option>
+				<option value="1.7">Sitzen/Stehen</option>
+				<option value="1.9">Stehen/Gehen</option>
+				<option value="2.2">Körperlich anstrengende Arbeit</option>
+			</select>
+			<!-- <input
+				type="submit"
+				onclick="kalorienverbrauchBerechnen(event)"
+				value="Submit"
+			/> -->
+			<div class="buttons">
+				<button type="button" onclick="kalorienverbrauchBerechnen(event)">
+					Submit
+				</button>
+				<button type="button" onclick="clearInput(event)">Löschen</button>
+			</div>
+			<div class="ergebnis">
+				<h3 class="kcal" id="kcal">kcal</h3>
+				<h3 class="kJ" id="kJ">kJ</h3>
+				<p class="grundumsatz" id="grundumsatz">Grundumsatz</p>
+				<p class="kcal-grundumsatz" id="kcal-grundumsatz">gu</p>
+				<p class="kJ-grundumsatz" id="kJ-grundumsatz">gu</p>
+				<p class="gesammtumsatz" id="gesammtumsatz">Gesamtumsatz</p>
+				<p class="kcal-gesammtumsatz" id="kcal-gesammtumsatz">ges</p>
+				<p class="kJ-gesammtumsatz" id="kJ-gesammtumsatz">ges</p>
+			</div>
+			<p>
+				Das Ergebnis des Rechners sollten Sie als Orientierungswert ansehen, da
+				es verschiedene Fehlermöglichkeiten gibt wie abweichender Grundumsatz,
+				falsche Zeiteinschätzung etc.
+			</p>
+		</form>
+		<script src="./assets/js/main.js"></script>
+	</body>
+</html>
