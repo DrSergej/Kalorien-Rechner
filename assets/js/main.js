@@ -31,21 +31,32 @@ function checkIfEmpty(event) {
 	const alter = document.getElementById("alter-id").value;
 	const gewicht = document.getElementById("gewicht-id").value;
 
+	if (groesse !== "" && alter !== "" && gewicht !== "") {
+		document.querySelector("h2").innerHTML = "";
+		document.querySelector("h2").style.color = "";
+	}
+
 	if (groesse !== "") {
 		document.getElementById("height-id").style.outline = ``;
-	} else if (alter !== "") {
+	}
+	if (alter !== "") {
 		document.getElementById("alter-id").style.outline = ``;
-	} else if (gewicht !== "") {
+	}
+	if (gewicht !== "") {
 		document.getElementById("gewicht-id").style.outline = ``;
 	}
 }
 
 function kalorienverbrauchBerechnen(event) {
 	event.preventDefault();
-	// console.log("test");
-	const groesse = document.getElementById("height-id").value;
-	const alter = document.getElementById("alter-id").value;
-	const gewicht = document.getElementById("gewicht-id").value;
+
+	const groesse = Math.abs(document.getElementById("height-id").value);
+	const alter = Math.abs(document.getElementById("alter-id").value);
+	const gewicht = Math.abs(document.getElementById("gewicht-id").value);
+	console.log(groesse);
+	console.log(typeof groesse);
+	console.log(alter);
+	console.log(typeof alter);
 
 	const female = document.getElementById("weiblich-radio").checked;
 	const male = document.getElementById("maennlich-radio").checked;
@@ -62,7 +73,7 @@ function kalorienverbrauchBerechnen(event) {
 	let ergebnisKJUmsatz = 0;
 	let ergebnisKJGesammt = 0;
 
-	if (groesse !== "" && alter !== "" && gewicht !== "") {
+	if (groesse !== 0 && alter !== 0 && gewicht !== 0) {
 		document.querySelector("h2").innerHTML = "";
 		document.querySelector("h2").style.color = "";
 		document.getElementById("height-id").style.outline = ``;
@@ -74,24 +85,28 @@ function kalorienverbrauchBerechnen(event) {
 				13.7 * gewicht +
 				5 * groesse -
 				6.8 * alter
-			).toFixed(2);
-			ergebnisKcalGesammt = (ergebnisKcalGU * Number(aktivitaet)).toFixed(3);
-			ergebnisKJUmsatz = (ergebnisKcalGU * 4.184).toFixed(3);
-			ergebnisKJGesammt = (ergebnisKcalGesammt * 4.184).toFixed(3);
+			).toFixed(0);
+			ergebnisKcalGesammt = (ergebnisKcalGU * Number(aktivitaet)).toFixed(0);
+			ergebnisKJUmsatz = (ergebnisKcalGU * 4.184).toFixed(0);
+			ergebnisKJGesammt = (ergebnisKcalGesammt * 4.184).toFixed(0);
+
 			kcalGU.innerHTML = ergebnisKcalGU;
 			kcalGesammt.innerHTML = ergebnisKcalGesammt;
 			kJGU.innerHTML = ergebnisKJUmsatz;
 			kJGesammt.innerHTML = ergebnisKJGesammt;
+
+			console.log("KJGesammt:", ergebnisKJGesammt);
+			console.log("KJGesammt:", typeof ergebnisKJGesammt);
 		} else if (female) {
 			ergebnisKcalGU = (
 				655.1 +
 				9.6 * gewicht +
 				1.8 * groesse -
 				4.7 * alter
-			).toFixed(3);
-			ergebnisKcalGesammt = (ergebnisKcalGU * Number(aktivitaet)).toFixed(3);
-			ergebnisKJUmsatz = (ergebnisKcalGU * 4.184).toFixed(3);
-			ergebnisKJGesammt = (ergebnisKcalGesammt * 4.184).toFixed(3);
+			).toFixed(0);
+			ergebnisKcalGesammt = (ergebnisKcalGU * Number(aktivitaet)).toFixed(0);
+			ergebnisKJUmsatz = (ergebnisKcalGU * 4.184).toFixed(0);
+			ergebnisKJGesammt = (ergebnisKcalGesammt * 4.184).toFixed(0);
 			kcalGU.innerHTML = ergebnisKcalGU;
 			kcalGesammt.innerHTML = ergebnisKcalGesammt;
 			kJGU.innerHTML = ergebnisKJUmsatz;
