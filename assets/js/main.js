@@ -88,10 +88,11 @@ function kalorienverbrauchBerechnen(event) {
 			ergebnisKJUmsatz = (ergebnisKcalGU * 4.184).toFixed(0);
 			ergebnisKJGesammt = (ergebnisKcalGesammt * 4.184).toFixed(0);
 
-			kcalGU.innerHTML = ergebnisKcalGU;
-			kcalGesammt.innerHTML = ergebnisKcalGesammt;
-			kJGU.innerHTML = ergebnisKJUmsatz;
-			kJGesammt.innerHTML = ergebnisKJGesammt;
+			kcalGU.innerHTML = Number(ergebnisKcalGU).toLocaleString("de-DE");
+			kcalGesammt.innerHTML =
+				Number(ergebnisKcalGesammt).toLocaleString("de-DE");
+			kJGU.innerHTML = Number(ergebnisKJUmsatz).toLocaleString("de-DE");
+			kJGesammt.innerHTML = Number(ergebnisKJGesammt).toLocaleString("de-DE");
 
 			console.log("KJGesammt:", ergebnisKJGesammt);
 			console.log("KJGesammt:", typeof ergebnisKJGesammt);
@@ -105,10 +106,11 @@ function kalorienverbrauchBerechnen(event) {
 			ergebnisKcalGesammt = (ergebnisKcalGU * Number(aktivitaet)).toFixed(0);
 			ergebnisKJUmsatz = (ergebnisKcalGU * 4.184).toFixed(0);
 			ergebnisKJGesammt = (ergebnisKcalGesammt * 4.184).toFixed(0);
-			kcalGU.innerHTML = ergebnisKcalGU;
-			kcalGesammt.innerHTML = ergebnisKcalGesammt;
-			kJGU.innerHTML = ergebnisKJUmsatz;
-			kJGesammt.innerHTML = ergebnisKJGesammt;
+			kcalGU.innerHTML = Number(ergebnisKcalGU).toLocaleString("de-DE");
+			kcalGesammt.innerHTML =
+				Number(ergebnisKcalGesammt).toLocaleString("de-DE");
+			kJGU.innerHTML = Number(ergebnisKJUmsatz).toLocaleString("de-DE");
+			kJGesammt.innerHTML = Number(ergebnisKJGesammt).toLocaleString("de-DE");
 		}
 	} else {
 		document.querySelector("h2").innerHTML = "Bitte alle Daten eintragen";
