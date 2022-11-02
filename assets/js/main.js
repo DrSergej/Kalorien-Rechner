@@ -1,7 +1,5 @@
 "use strict";
 
-// console.log("test");
-
 function clearInput(event) {
 	event.preventDefault();
 
